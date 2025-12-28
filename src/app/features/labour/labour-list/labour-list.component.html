@@ -1,0 +1,28 @@
+<h2>Labour List</h2>
+
+<div>
+  <input placeholder="Search by phone" [(ngModel)]="searchPhone" />
+  <button (click)="findByPhone()">Search</button>
+  <button (click)="loadLabourers()">Clear</button>
+</div>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Village</th>
+    <th>Phone</th>
+    <th>Action</th>
+  </tr>
+
+  <tr *ngFor="let l of labourers">
+    <td>{{ l.id }}</td>
+    <td>{{ l.name }}</td>
+    <td>{{ l.village }}</td>
+    <td>{{ l.phoneNumber }}</td>
+    <td>
+      <button (click)="deleteById(l.id)">Delete</button>
+      <button (click)="deleteByPhone(l.phoneNumber)">Delete by Phone</button>
+    </td>
+  </tr>
+</table>

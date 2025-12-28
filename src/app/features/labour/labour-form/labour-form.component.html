@@ -1,0 +1,30 @@
+<h2>Register Labourer</h2>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" />
+    <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" style="color: red;">
+      <div *ngIf="name?.errors?.['required']">Name is required.</div>
+      <div *ngIf="name?.errors?.['maxLength']">Name is too long.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="village">Village:</label>
+    <input id="village" formControlName="village" />
+    <div *ngIf="village?.invalid && (village?.dirty || village?.touched)" style="color: red;">
+      <div *ngIf="village?.errors?.['required']">Village is required.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="phoneNumber">Phone Number:</label>
+    <input id="phoneNumber" formControlName="phoneNumber" />
+    <div *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)" style="color: red;">
+      <div *ngIf="phoneNumber?.errors?.['required']">Phone number is required.</div>
+      <div *ngIf="phoneNumber?.errors?.['pattern']">Enter a valid 10-digit phone number.</div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Register</button>
+</form>
